@@ -2,7 +2,7 @@
 
 > 日本の都道府県別に、現在の天気と詳細な気象情報を確認できるシンプルなWebダッシュボード。
 
-<img width="3840" height="1916" alt="top" src="https://github.com/user-attachments/assets/0bde079c-c27e-4c4c-ac95-226ae1262535" />
+<img width="3840" height="1916" alt="top" src="https://github.com/user-attachments/assets/f4403cb2-eb70-4e69-b2f5-6cb0906aea29" />
 
 ---
 
