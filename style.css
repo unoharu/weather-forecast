@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Rajdhani:wght@600;700&display=swap');
+
+:root {
+    --bg: #f0f6ff;
+    --surface: #f9fbff;
+    --surface-strong: #e8f2ff;
+    --primary: #0d74e7;
+    --primary-dark: #0958af;
+    --text-main: #13253f;
+    --text-sub: #425b7e;
+    --border: #b5cae4;
+    --shadow-lg: 0 14px 36px rgba(13, 51, 105, 0.18);
+    --shadow-md: 0 8px 22px rgba(13, 51, 105, 0.12);
+    --radius-lg: 18px;
+    --radius-md: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    line-height: 1.5;
+    color: var(--text-main);
+    background:
+        radial-gradient(circle at 15% 10%, rgba(46, 134, 255, 0.2) 0, rgba(46, 134, 255, 0) 40%),
+        radial-gradient(circle at 85% 18%, rgba(0, 170, 255, 0.18) 0, rgba(0, 170, 255, 0) 32%),
+        linear-gradient(180deg, #edf4ff 0%, #dcecff 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.dashboard {
+    width: min(1280px, 100%);
+    margin: 0 auto;
+    display: grid;
+    gap: 18px;
+}
+
+#content {
+    display: grid;
+    grid-template-columns: minmax(280px, 340px) 1fr;
+    gap: 18px;
+    align-items: stretch;
+}
+
+#weather_content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background-color: var(--surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(88, 129, 182, 0.18);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.office {
+    background-image: url('./images/weather.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    width: 100%;
+    min-height: 620px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(61, 105, 162, 0.3);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.map-header {
+    text-align: center;
+    color: #ffffff;
+    background: rgba(5, 23, 53, 0.5);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(191, 220, 255, 0.4);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+}
+
+.map-header h2 {
+    font-size: clamp(1.1rem, 2.3vw, 1.4rem);
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.map-header p {
+    font-size: 0.92rem;
+    opacity: 0.95;
+}
+
+#my-map {
+    background: linear-gradient(160deg, #1158b3 0%, #2f89ff 50%, #ffffff 100%);
+    width: min(100%, 800px);
+    margin: 0 auto;
+    border: 3px solid #4e77a3;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+#my-map svg {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+}
+
+#clock {
+    min-height: 120px;
+    background: linear-gradient(120deg, var(--primary-dark), var(--primary));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px;
+}
+
+#RealtimeClockArea {
+    color: #ffffff;
+    font-family: "Rajdhani", sans-serif;
+    letter-spacing: 0.08em;
+    font-size: clamp(2rem, 5.5vw, 3.6rem);
+    font-weight: 700;
+}
+
+.current-weather-card {
+    background: linear-gradient(180deg, var(--surface) 0%, var(--surface-strong) 100%);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(88, 129, 182, 0.22);
+    margin: 0 14px 14px;
+    text-align: center;
+}
+
+.section-label {
+    display: inline-block;
+    font-family: "Rajdhani", sans-serif;
+    letter-spacing: 0.08em;
+    color: var(--primary-dark);
+    background: rgba(13, 116, 231, 0.14);
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+#weather3 {
+    background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(61, 105, 162, 0.35);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+#weather3 h2 {
+    color: #ffffff;
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    background-color: #ffffff;
+}
+
+table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+table th,
+td {
+    text-align: center;
+    color: var(--text-main);
+    background-color: #d9e9fb;
+    border-left: 1px solid var(--border);
+    width: 6.25%;
+    padding: 12px 8px;
+}
+
+table th {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+table td {
+    background-color: #ffffff;
+    padding: 20px 8px;
+    font-weight: 500;
+}
+
+.wrapper {
+    padding: 0 14px 18px;
+}
+
+#name {
+    margin: 10px 0 4px;
+    font-weight: 700;
+    font-size: clamp(1.5rem, 3.2vw, 2rem);
+}
+
+.weather-summary {
+    color: var(--text-sub);
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.temp-list {
+    display: grid;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.temp-list p {
+    background: #ffffff;
+    border: 1px solid rgba(124, 157, 201, 0.35);
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-weight: 500;
+}
+
+.temp-list span {
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+#now {
+    font-size: clamp(1.4rem, 3.2vw, 1.75rem);
+    padding: 6px 12px 2px;
+    font-weight: 700;
+}
+
+#weatherIcon img {
+    width: clamp(76px, 14vw, 100px);
+    height: clamp(76px, 14vw, 100px);
+}
+
+@media (max-width: 1280px) {
+    body {
+        padding: 16px;
+    }
+
+    .dashboard {
+        gap: 16px;
+    }
+
+    #content {
+        grid-template-columns: minmax(280px, 320px) 1fr;
+        gap: 16px;
+    }
+
+    .office {
+        min-height: 580px;
+        padding: 16px;
+    }
+
+    #my-map {
+        width: min(100%, 760px);
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+    }
+
+    .dashboard {
+        gap: 12px;
+    }
+
+    #content {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    #weather_content,
+    .office,
+    #weather3 {
+        border-radius: 14px;
+    }
+
+    #clock {
+        min-height: 108px;
+        padding: 12px;
+    }
+
+    #RealtimeClockArea {
+        font-size: 3rem;
+    }
+
+    .office {
+        min-height: auto;
+        padding: 12px;
+    }
+
+    .map-header {
+        padding: 10px 12px;
+    }
+
+    .map-header h2 {
+        font-size: 1.15rem;
+    }
+
+    .map-header p {
+        font-size: 0.88rem;
+    }
+
+    #my-map {
+        width: 100%;
+        border-width: 2px;
+    }
+
+    #weather3 h2 {
+        text-align: center;
+        padding: 10px 12px;
+    }
+
+    .current-weather-card {
+        margin: 0 12px 12px;
+    }
+
+    table {
+        min-width: 680px;
+    }
+
+    table th,
+    td {
+        padding: 10px 6px;
+    }
+
+    table td {
+        padding: 16px 6px;
+    }
+}
+
+@media (max-width: 390px) {
+    body {
+        padding: 8px;
+    }
+
+    .dashboard {
+        gap: 10px;
+    }
+
+    #weather_content,
+    .office,
+    #weather3,
+    .current-weather-card,
+    #my-map,
+    .map-header {
+        border-radius: 10px;
+    }
+
+    #content {
+        gap: 10px;
+    }
+
+    #clock {
+        min-height: 92px;
+        padding: 10px;
+    }
+
+    #RealtimeClockArea {
+        letter-spacing: 0.06em;
+        font-size: 2.3rem;
+    }
+
+    .wrapper {
+        padding: 0 10px 12px;
+    }
+
+    .section-label {
+        font-size: 0.74rem;
+        padding: 3px 8px;
+    }
+
+    #now {
+        font-size: 1.25rem;
+    }
+
+    #name {
+        font-size: 1.45rem;
+    }
+
+    .weather-summary {
+        font-size: 0.92rem;
+    }
+
+    .temp-list p {
+        font-size: 0.92rem;
+        padding: 7px 8px;
+    }
+
+    #weatherIcon img {
+        width: 74px;
+        height: 74px;
+    }
+
+    .office {
+        padding: 10px;
+    }
+
+    .map-header {
+        padding: 8px 9px;
+    }
+
+    .map-header h2 {
+        font-size: 1rem;
+    }
+
+    .map-header p {
+        font-size: 0.8rem;
+    }
+
+    #my-map {
+        border-width: 2px;
+    }
+
+    #weather3 h2 {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    table th {
+        font-size: 0.8rem;
+    }
+
+    table th,
+    td {
+        padding: 8px 5px;
+    }
+
+    table td {
+        font-size: 0.88rem;
+        padding: 12px 5px;
+    }
+}

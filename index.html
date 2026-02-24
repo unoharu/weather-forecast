@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天気予報ダッシュボード</title>
+    <meta name="theme-color" content="#0d74e7">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), camera=(), microphone=(), payment=()">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' https://unpkg.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://openweathermap.org data:; connect-src 'self' https://api.openweathermap.org;">
+    <link rel="icon" href="images/favicon.ico" sizes="any">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://unpkg.com/japan-map-js@1.0.1/dist/jpmap.min.js" defer></script>
+</head>
+<body>
+    <main class="dashboard">
+        <section id="content">
+            <aside id="weather_content">
+                <div id="clock" aria-label="現在時刻">
+                    <h1 id="RealtimeClockArea"></h1>
+                </div>
+
+                <div class="current-weather-card wrapper">
+                    <p class="section-label">Current Weather</p>
+                    <h1 id="now">現在の天気</h1>
+                    <h2 id="name">東京</h2>
+                    <div id="weatherIcon" aria-live="polite"></div>
+                    <p id="weather" class="weather-summary"></p>
+
+                    <div class="temp-list">
+                        <p>気温 <span id="temperature"></span>°C</p>
+                        <p>最高気温 <span id="temperatureMax"></span>°C</p>
+                        <p>最低気温 <span id="temperatureMin"></span>°C</p>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="office" aria-label="都道府県マップ">
+                <header class="map-header">
+                    <h2>都道府県マップ</h2>
+                    <p>都道府県を選択して天気を確認</p>
+                </header>
+                <div id="my-map"></div>
+            </section>
+        </section>
+
+        <section id="weather3" aria-label="詳細な気象情報">
+            <h2>詳しい天気</h2>
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>湿度</th>
+                            <th>体感温度</th>
+                            <th>大気圧(hPa)</th>
+                            <th>風速</th>
+                            <th>風向き</th>
+                            <th>曇り</th>
+                            <th>日の出時刻</th>
+                            <th>日没時間</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span id="humidity"></span>%</td>
+                            <td><span id="feels_like"></span>℃</td>
+                            <td><span id="pressure"></span>hPa</td>
+                            <td><span id="speed"></span>m/s</td>
+                            <td><span id="deg"></span>°</td>
+                            <td><span id="clouds"></span>%</td>
+                            <td><span id="sunrise"></span></td>
+                            <td><span id="sunset"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

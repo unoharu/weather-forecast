@@ -1,0 +1,4 @@
+.DS_Store
+.claude
+.env
+js/config.local.js
